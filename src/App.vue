@@ -1,10 +1,12 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <h1>Hi!</h1>
+  <DefaultLayout>
+    <MainView />
+  </DefaultLayout>
 </template>
 
-<style scoped>
+<script setup lang="ts">
+import DefaultLayout from "./layout/DefaultLayout.vue";
+import MainView from "./views/MainView.vue";
+</script>
 
-</style>
+<style scoped></style>
