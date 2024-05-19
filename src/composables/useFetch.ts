@@ -20,12 +20,17 @@ function getEpisodeMap(episodes: Episode[]) {
   );
 }
 
-export async function useFetch() {
+type QueryParams = {
+  page?: number
+}
+
+export async function useFetch(queryParams: QueryParams) {
+  const { page } = queryParams
   const data = ref<ApiResponse<Info<Character[]>> | null>(null);
   const error = ref<string | null>(null);
 
   try {
-    const response = await getCharacters({ page: 1 });
+    const response = await getCharacters({ page });
     data.value = response;
     if (!response.data.results) {
       throw new Error("no data in server response :(");
