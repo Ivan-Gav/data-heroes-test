@@ -88,6 +88,7 @@ const disabled = computed(() => ({
 }
 
 .container {
+  display: flex;
   justify-content: center;
   padding-block: 1rem;
 }
