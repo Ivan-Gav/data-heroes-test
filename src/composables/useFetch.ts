@@ -31,14 +31,14 @@ export async function useFetch() {
       throw new Error("no data in server response :(");
     }
     const episodeNumbers = filterDublicates(
-      response.data.results?.map((character) =>
+      response.data.results.map((character) =>
         getFirstEpisodeNrByUrl(character)
       )
     );
     if (episodeNumbers) {
       const episodes = await getEpisode(episodeNumbers);
       const episodeMap = getEpisodeMap(episodes.data);
-      response.data.results?.forEach(
+      response.data.results.forEach(
         (character) =>
           (character.episode[0] = episodeMap[getFirstEpisodeNrByUrl(character)])
       );

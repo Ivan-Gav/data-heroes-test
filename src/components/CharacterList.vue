@@ -20,5 +20,10 @@ const characters = computed(() => data?.results);
 .list{
   display: grid;
   grid-template-columns: repeat(auto-fill, 600px);
+  justify-content: center;
+
+  @media (max-width: 650px) {
+      grid-template-columns: 1fr;
+  }
 }
 </style>
