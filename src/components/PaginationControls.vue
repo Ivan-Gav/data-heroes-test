@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="pagination_container">
     <button
       class="pbtn"
       :disabled="disabled.first"
@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import NextSVG from "./svg/NextSVG.vue";
 import PrevSVG from "./svg/PrevSVG.vue";
 
@@ -65,6 +65,11 @@ const props = defineProps<{
 const emit = defineEmits(["pageChange"]);
 
 const currentPage = ref(1);
+
+watch(props, () => {
+  currentPage.value = props.page
+}, { deep: true})
+
 
 const onPaginationClick = (page: number) => {
   currentPage.value = page;
@@ -80,16 +85,16 @@ const disabled = computed(() => ({
 </script>
 
 <style scoped>
-.container,
+.pagination_container,
 .curr_page {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: 0.5rem;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
+.pagination_container {
   padding-block: 1rem;
 }
 

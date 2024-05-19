@@ -35,7 +35,7 @@ const props = defineProps<{ character: Character }>();
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  height: 220px;
+  min-height: 220px;
   color: #ffffff;
   background: rgb(60, 62, 68);
   border-radius: 0.5rem;
@@ -47,6 +47,11 @@ const props = defineProps<{ character: Character }>();
     flex-direction: column;
     height: initial;
   }  
+}
+
+.image {
+  width: 230px;
+  object-fit: cover;
 }
 
 .image {

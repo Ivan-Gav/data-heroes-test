@@ -100,7 +100,8 @@ const clearFilter = () => {
   gap: 1rem;
   padding: 0.625rem;
   border-radius: 100vw;
-  background-color: rgb(178, 178, 178); 
+  background-color: rgb(178, 178, 178);
+  color: black; 
 }
 
 .close {
@@ -125,7 +126,4 @@ const clearFilter = () => {
 
 }
 
-.lbl_applied {
-  color: white;
-}
 </style>
