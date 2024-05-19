@@ -13,6 +13,7 @@ import CharacterCard from "./CharacterCard.vue";
 const { data, error } = await useFetch();
 
 const characters = computed(() => data?.results);
+
 </script>
 
 <style scoped>
