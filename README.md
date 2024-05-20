@@ -1,12 +1,14 @@
 # Тестовое задание на вакансию Frontend-разработчик в компании Data Heroes
 
 ## Деплой приложения
-[здесь]()
+[здесь](https://ivan-gav.github.io/data-heroes-test/)
 
 ## Скриншот
+![alt text](image.png)
 
 ## Стэк
 - Vue 3
+- Vue Query
 - TypeScript
 - Vite
 
