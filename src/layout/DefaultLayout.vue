@@ -1,12 +1,17 @@
 <template>
   <div class="container">
-    <header><h1>Header</h1></header>
+    <PageHeader />
     <slot></slot>
-    <footer><p>Footer</p></footer>
+    <PageFooter />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PageHeader from './PageHeader.vue';
+import PageFooter from './PageFooter.vue';
+
+
+</script>
 
 <style scoped>
 .container{
