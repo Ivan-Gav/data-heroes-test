@@ -1,5 +1,8 @@
 <template>
-  <MessageBlock v-if="error" :message="`Error: ${error.message || '..Morty, something went wrong'} `" />
+  <MessageBlock
+    v-if="error"
+    :message="`Error: ${error.message || '..Morty, something went wrong'} `"
+  />
   <MessageBlock v-else-if="isLoading" message="Загрузка..." />
   <div v-else class="container">
     <FilterComponent
@@ -41,7 +44,6 @@ const filter = ref<{
   status?: "Alive" | "Dead" | "unknown" | "";
 } | null>(null);
 
-
 const queryParams = computed(() => ({
   page: currentPage.value,
   name: filter.value?.name,
@@ -61,7 +63,6 @@ const handlePageChange = (page: number) => {
 const handleFilter = (filterData: Required<typeof filter.value>) => {
   currentPage.value = 1;
   filter.value = filterData;
-  console.log(queryParams.value)
   refetch();
 };
 

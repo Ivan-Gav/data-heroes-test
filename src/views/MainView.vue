@@ -1,9 +1,6 @@
 <template>
   <main class="main">
-    <Suspense>
-      <CharacterList />
-      <template #fallback> Loading... </template>
-    </Suspense>
+    <CharacterList />
   </main>
 </template>
 

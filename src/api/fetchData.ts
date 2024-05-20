@@ -14,9 +14,6 @@ function filterDublicates<T>(arr: T[] | undefined): T[] {
 }
 
 function getEpisodeMap(episodes: Episode[] | Episode) {
-  console.log("I got this:");
-  console.log(episodes);
-
   if (Array.isArray(episodes)) {
     return Object.fromEntries(
       episodes.map((episode) => [episode.id, episode.name])

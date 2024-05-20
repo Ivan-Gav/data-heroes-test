@@ -19,8 +19,12 @@
   <div v-if="props.name || props.status" class="container">
     <div class="lbl_applied"><strong>Применен фильтр:</strong></div>
     <div class="applied">
-      <div v-if="props.name" class="item_applied">Имя: <strong>{{ props.name }}</strong></div>
-      <div v-if="props.status" class="item_applied">Статус: <strong>{{ props.status }}</strong></div>
+      <div v-if="props.name" class="item_applied">
+        Имя: <strong>{{ props.name }}</strong>
+      </div>
+      <div v-if="props.status" class="item_applied">
+        Статус: <strong>{{ props.status }}</strong>
+      </div>
       <button class="close" @click="clearFilter"><CloseSVG /></button>
     </div>
   </div>
@@ -35,24 +39,20 @@ const props = defineProps<{
   status?: "Alive" | "Dead" | "unknown" | "";
 }>();
 
-const emit = defineEmits(['filterApply'])
+const emit = defineEmits(["filterApply"]);
 
 const name = ref<string>(props.name || "");
 const status = ref<"Alive" | "Dead" | "unknown" | "">(props.status || "");
 
 const handleFilter = (filterData: Required<typeof props>) => {
-  emit("filterApply", filterData)
-  name.value = ''
-  status.value = ''
-}
+  emit("filterApply", filterData);
+  name.value = "";
+  status.value = "";
+};
 
 const clearFilter = () => {
-  emit("filterApply", { name: '', status: '' })
-}
-
-
-
-
+  emit("filterApply", { name: "", status: "" });
+};
 </script>
 
 <style scoped>
@@ -78,8 +78,8 @@ const clearFilter = () => {
 }
 
 .input {
-  background-color: rgb(178, 178, 178);
-  color: black;
+  background-color: var(--color-bg-input);
+  color: var(--color-bg-main);
 
   @media (max-width: 650px) {
     width: 100%;
@@ -87,7 +87,7 @@ const clearFilter = () => {
 }
 
 .btn {
-  background-color: rgb(178, 178, 178);
+  background-color: var(--color-bg-input);
   opacity: 0.8;
 
   &:disabled {
@@ -96,7 +96,7 @@ const clearFilter = () => {
   }
 
   &:active {
-    outline: 2px solid rgb(255, 152, 0);
+    outline: 2px solid var(--color-accent);
   }
 
   &:hover {
@@ -115,16 +115,15 @@ const clearFilter = () => {
   }
 }
 
-
 .applied {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 0.625rem;
   border-radius: 100vw;
-  background-color: rgb(178, 178, 178);
-  color: black;
-  
+  background-color: var(--color-bg-input);
+  color: var(--color-bg-main);
+
   @media (max-width: 650px) {
     max-width: 90%;
     overflow: hidden;
@@ -145,12 +144,12 @@ const clearFilter = () => {
   min-width: 1.5rem;
   width: 1.5rem;
   height: 1.5rem;
-  background-color: white;
+  background-color: var(--color-bg-inverted);
   border-radius: 100vw;
-  color: black;
+  color: var(--color-text-inverted);
   opacity: 0.8;
   padding: 0;
-  
+
   & svg {
     transition: rotate 0.3s ease-in;
   }
@@ -158,7 +157,5 @@ const clearFilter = () => {
   &:hover svg {
     rotate: 90deg;
   }
-
 }
-
 </style>

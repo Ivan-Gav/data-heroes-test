@@ -1,17 +1,16 @@
 <template>
   <div class="container">
-    <RickAndMortySVG class="rnm"/>
+    <RickAndMortySVG class="rnm" />
     <h2 v-if="props.message" class="message">{{ props.message }}</h2>
   </div>
 </template>
 
 <script setup lang="ts">
-import RickAndMortySVG from './svg/RickAndMortySVG.vue';
+import RickAndMortySVG from "./svg/RickAndMortySVG.vue";
 
 const props = defineProps({
-  message: String
-})
-
+  message: String,
+});
 </script>
 
 <style scoped>

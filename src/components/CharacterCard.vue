@@ -8,7 +8,10 @@
     <div class="content">
       <h3 class="name">{{ props.character.name }}</h3>
       <div class="statusbar">
-        <div class="indicator" :class="props.character.status.toLowerCase()"></div>
+        <div
+          class="indicator"
+          :class="props.character.status.toLowerCase()"
+        ></div>
         <div class="statustext">
           {{ props.character.status }} - {{ props.character.species }}
         </div>
@@ -36,8 +39,8 @@ const props = defineProps<{ character: Character }>();
   flex-direction: row;
   overflow: hidden;
   min-height: 220px;
-  color: #ffffff;
-  background: rgb(60, 62, 68);
+  color: var(--color-text-main);
+  background: var(--color-bg-elevated);
   border-radius: 0.5rem;
   margin: 0.75rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
@@ -46,7 +49,7 @@ const props = defineProps<{ character: Character }>();
   @media (max-width: 650px) {
     flex-direction: column;
     height: initial;
-  }  
+  }
 }
 
 .image {
@@ -82,15 +85,15 @@ const props = defineProps<{ character: Character }>();
   width: 0.5rem;
   margin-right: 0.375rem;
   margin-top: 0.1875rem;
-  background: rgb(158, 158, 158);
+  background: var(--color-status-unknown);
   border-radius: 50%;
 
-  &.dead{
-    background: rgb(214, 61, 46);
+  &.dead {
+    background: var(--color-status-dead);
   }
 
-  &.alive{
-    background: rgb(85, 204, 68);
+  &.alive {
+    background: var(--color-status-alive);
   }
 }
 .textblock {
@@ -100,7 +103,7 @@ const props = defineProps<{ character: Character }>();
   justify-content: center;
 }
 .label {
-  color: rgb(158, 158, 158);
+  color: var(--color-text-dim);
 }
 .text {
   font-size: 1rem;

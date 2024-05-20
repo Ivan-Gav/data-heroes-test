@@ -32,7 +32,7 @@ import GitSVG from "src/components/svg/GitSVG.vue";
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: solid 1px #3c3e44;
+  border-top: solid 1px var(--color-bg-elevated);
   padding: 1rem;
   @media (max-width: 650px) {
     flex-direction: column;

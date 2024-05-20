@@ -66,10 +66,13 @@ const emit = defineEmits(["pageChange"]);
 
 const currentPage = ref(1);
 
-watch(props, () => {
-  currentPage.value = props.page
-}, { deep: true})
-
+watch(
+  props,
+  () => {
+    currentPage.value = props.page;
+  },
+  { deep: true }
+);
 
 const onPaginationClick = (page: number) => {
   currentPage.value = page;
@@ -105,7 +108,7 @@ const disabled = computed(() => ({
   width: 3rem;
   height: 3rem;
   border-radius: 100vw;
-  background-color: rgb(178, 178, 178);
+  background-color: var(--color-bg-input);
   opacity: 0.8;
 
   &:disabled {
@@ -114,8 +117,8 @@ const disabled = computed(() => ({
   }
 
   &:active {
-    outline: 2px solid rgb(255, 152, 0);
-  } 
+    outline: 2px solid var(--color-accent);
+  }
 
   &:hover {
     opacity: 1;
@@ -130,7 +133,7 @@ const disabled = computed(() => ({
   height: 3rem;
   border: none;
   border-radius: 100vw;
-  background-color: rgb(178, 178, 178);
+  background-color: var(--color-bg-input);
   font-size: 1rem;
   transition: opacity 0.3s ease-in;
   -moz-appearance: textfield;
@@ -148,10 +151,11 @@ const disabled = computed(() => ({
     opacity: 1;
   }
   &:focus-visible {
-    outline: 2px solid rgb(255, 152, 0);
+    outline: 2px solid var(--color-accent);
   }
   &:disabled {
-    color: light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));;
+    opacity: 0.3;
+    pointer-events: none;
   }
 }
 

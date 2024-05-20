@@ -1,10 +1,26 @@
 :root {
-  font-family: BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --font-main: BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  
+  --color-bg-main: rgb(32, 35, 41);
+  --color-bg-inverted: #ffffff;
+  --color-bg-elevated: rgb(60, 62, 68);
+  --color-bg-input: rgb(178, 178, 178);
+  --color-text-main: #ffffff;
+  --color-text-inverted: rgb(32, 35, 41);
+  --color-text-dim: rgb(158, 158, 158);
+  --color-status-alive: rgb(85, 204, 68);
+  --color-status-dead: rgb(214, 61, 46);
+  --color-status-unknown: rgb(158, 158, 158);
+
+  --color-accent: rgb(255, 152, 0);
+  
+  font-family: var(--font-main);
   font-size: 112.5%;
   line-height: 1.5;
   font-weight: 400;
-  background: rgb(32, 35, 41);
-  color: white;
+    
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
 }
 
 * {
@@ -15,7 +31,7 @@
 
 button {
   cursor: pointer;
-  font-family: BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-main);
   font-size: 1rem;
   border: none;
   border-radius: 0.25rem;
@@ -28,7 +44,7 @@ button {
   }
   
   &:focus-visible {
-    outline: 2px solid rgb(255, 152, 0);
+    outline: 2px solid var(--color-accent);
   } 
 }
 
