@@ -2,12 +2,19 @@
   <div class="container">
     <form class="filter" @submit.prevent="() => handleFilter({ name, status })">
       <input
+        id="name_filter_input"
+        name="name_filter_input"
         type="text"
         v-model="name"
         placeholder="Искать по имени"
         class="input"
       />
-      <select v-model="status" class="input">
+      <select
+        id="status_filter_input"
+        name="status_filter_input"
+        v-model="status"
+        class="input"
+      >
         <option value="">Выбрать статус</option>
         <option>Alive</option>
         <option>Dead</option>
