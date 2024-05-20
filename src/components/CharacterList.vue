@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { computed, ref } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 // import { useFetch } from "src/composables/useFetch";
 import CharacterCard from "./CharacterCard.vue";
@@ -48,7 +48,7 @@ const queryParams = computed(() => ({
   status: filter.value?.status,
 }));
 
-const { data, error, isLoading, refetch, isError } = useQuery({
+const { data, error, isLoading, refetch } = useQuery({
   queryKey: ["characters"],
   queryFn: () => fetchData(queryParams.value),
 });
@@ -64,22 +64,6 @@ const handleFilter = (filterData: Required<typeof filter.value>) => {
   console.log(queryParams.value)
   refetch();
 };
-
-watch(
-  isError,
-  () => {
-    console.log(`isErrrrrrrrorrrr: ${isError.value}`);
-  },
-  { deep: true }
-);
-
-watch(
-  error,
-  () => {
-    console.log(`Fuckabookabooo: ${error.value?.message}`);
-  },
-  { deep: true }
-);
 
 const characters = computed(() => data.value?.data.results);
 </script>
