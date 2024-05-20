@@ -6,6 +6,12 @@
         Иван Гаврилин
       </a>
     </div>
+    <div>
+      <span>content:&nbsp;</span>
+      <a href="https://rickandmortyapi.com/" target="_blank" class="link">
+        rickandmortyapi
+      </a>
+    </div>
     <a
       href="https://github.com/Ivan-Gav/data-heroes-test"
       target="_blank"
@@ -24,9 +30,14 @@ import GitSVG from "src/components/svg/GitSVG.vue";
 .footer {
   width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  border-top: solid 1px white;
-  padding: 8px 10px;
+  border-top: solid 1px #3c3e44;
+  padding: 1rem;
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .link {
   color: white;

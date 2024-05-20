@@ -57,6 +57,7 @@ const props = defineProps<{ character: Character }>();
 .image {
   @media (max-width: 650px) {
     height: 300px;
+    width: initial;
     object-fit: cover;
   }
 }

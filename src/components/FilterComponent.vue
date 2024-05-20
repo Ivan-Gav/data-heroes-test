@@ -19,8 +19,8 @@
   <div v-if="props.name || props.status" class="container">
     <div class="lbl_applied"><strong>Применен фильтр:</strong></div>
     <div class="applied">
-      <div v-if="props.name">Имя: <strong>{{ props.name }}</strong></div>
-      <div v-if="props.status">Статус: <strong>{{ props.status }}</strong></div>
+      <div v-if="props.name" class="item_applied">Имя: <strong>{{ props.name }}</strong></div>
+      <div v-if="props.status" class="item_applied">Статус: <strong>{{ props.status }}</strong></div>
       <button class="close" @click="clearFilter"><CloseSVG /></button>
     </div>
   </div>
@@ -57,6 +57,7 @@ const clearFilter = () => {
 
 <style scoped>
 .container {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,13 +68,22 @@ const clearFilter = () => {
 .filter {
   align-self: center;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .input {
   background-color: rgb(178, 178, 178);
   color: black;
+
+  @media (max-width: 650px) {
+    width: 100%;
+  }
 }
 
 .btn {
@@ -92,7 +102,19 @@ const clearFilter = () => {
   &:hover {
     opacity: 1;
   }
+
+  @media (max-width: 650px) {
+    width: 100%;
+  }
 }
+
+.lbl_applied {
+  display: inline-block;
+  @media (max-width: 650px) {
+    display: none;
+  }
+}
+
 
 .applied {
   display: flex;
@@ -101,13 +123,26 @@ const clearFilter = () => {
   padding: 0.625rem;
   border-radius: 100vw;
   background-color: rgb(178, 178, 178);
-  color: black; 
+  color: black;
+  
+  @media (max-width: 650px) {
+    max-width: 90%;
+    overflow: hidden;
+  }
+}
+
+.item_applied {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .close {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 1.5rem;
   width: 1.5rem;
   height: 1.5rem;
   background-color: white;
