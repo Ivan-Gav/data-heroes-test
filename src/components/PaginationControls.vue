@@ -30,7 +30,7 @@
         :max="props.totalPages"
         step="1"
         v-model="currentPage"
-        :disabled="props.isLoading"
+        :disabled="props.isLoading || props.totalPages === 1"
       />
     </form>
 
